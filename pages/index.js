@@ -6,6 +6,11 @@ import Link from "next/link";
 // You can only use the fs library on the server side!
 import fs from "fs";
 import matter from "gray-matter";
+import styled from "styled-components";
+
+const Container = styled.div`
+  /* background: red; */
+`;
 
 export default function Home({ products }) {
   // https://www.youtube.com/watch?v=Cn8Y9zmnbDM&list=PLFGFKs8nQ3EbG-ykV8xc1mBt99sqq2Ssx&index=2 => Tutorial playlist
@@ -15,7 +20,7 @@ export default function Home({ products }) {
 
   return products.map((product) => {
     return (
-      <div key={product.name}>
+      <Container key={product.name}>
         <Link href={product.slug}>
           <a>
             <h1>{product.name}</h1>
@@ -23,7 +28,7 @@ export default function Home({ products }) {
         </Link>
         <p>{product.description}</p>
         <p>${product.price / 100}</p>
-      </div>
+      </Container>
     );
   });
 }
