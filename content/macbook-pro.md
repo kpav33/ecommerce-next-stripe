@@ -1,4 +1,5 @@
 ---
+id: 3
 name: Macbook Pro
 description: The best computer
 price: 200000
