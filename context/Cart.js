@@ -12,6 +12,7 @@ const Cart = ({ children }) => {
     const initialCart = getInitialCart();
     // console.log("INITIAL ", initialCart);
     // console.log("OK")
+    // The length check is temporary, later checking only if (initialCart) {} will be enough
     if (initialCart.length > 0) {
       //   console.log("EXECUTE");
       setCart(initialCart);

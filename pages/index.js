@@ -37,6 +37,7 @@ const Price = styled.div`
 
 const renderProduct = (product, addItemToCart) => {
   const handleClick = (e) => {
+    // Add stop propagation to prevent that when you click on the button, the click event propagates up to the link element, which would take us to the subpage, which we don't want to happen
     e.stopPropagation();
     addItemToCart(product);
   };
