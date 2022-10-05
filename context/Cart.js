@@ -12,7 +12,7 @@ const Cart = ({ children }) => {
     const initialCart = getInitialCart();
     // console.log("INITIAL ", initialCart);
     // console.log("OK")
-    if (initialCart) {
+    if (initialCart.length > 0) {
       //   console.log("EXECUTE");
       setCart(initialCart);
     }
