@@ -7,6 +7,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import styled from "styled-components";
 import UnstyledLink from "../components/styled/UnstyledLink";
+import useCart from "../hooks/useCart";
 
 const Container = styled.div`
   background: white;
@@ -34,9 +35,10 @@ const Price = styled.div`
   font-size: 2.5rem;
 `;
 
-const renderProduct = (product) => {
+const renderProduct = (product, addItemToCart) => {
   const handleClick = (e) => {
     e.stopPropagation();
+    addItemToCart(product);
   };
 
   // console.log(product);
@@ -61,7 +63,14 @@ export default function Home({ products }) {
   // This tutorial also has a useful short overview of React, Next.js and deploying of an app
   // Also includes a short guide on how to checkout a branch and later merge it into the main app
 
-  return <ProductsContainer>{products.map(renderProduct)}</ProductsContainer>;
+  const { cart, addItemToCart } = useCart();
+  console.log(cart);
+
+  return (
+    <ProductsContainer>
+      {products.map((product) => renderProduct(product, addItemToCart))}
+    </ProductsContainer>
+  );
 }
 
 export async function getStaticProps() {

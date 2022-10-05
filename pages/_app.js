@@ -2,6 +2,9 @@ import Link from "next/link";
 import styled from "styled-components";
 import { Normalize } from "styled-normalize";
 import Navbar from "../components/Navbar";
+import Cart from "../components/Cart";
+
+import CartProvider from "../context/Cart";
 
 const Container = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap");
@@ -19,13 +22,16 @@ const Page = styled.div`
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Container>
-      <Normalize />
-      <Navbar />
-      <Page>
-        <Component {...pageProps} />
-      </Page>
-    </Container>
+    <CartProvider>
+      <Container>
+        <Normalize />
+        <Navbar />
+        <Page>
+          <Component {...pageProps} />
+        </Page>
+        <Cart />
+      </Container>
+    </CartProvider>
   );
 }
 
