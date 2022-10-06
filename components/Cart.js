@@ -93,23 +93,29 @@ const Cart = () => {
       </XContainer>
       <Content>
         <Title>Cart</Title>
-        <Ul>
-          {cart.map((item) => {
-            return (
-              <Item key={item.name}>
-                <span>
-                  {item.qty}x {item.name}
-                </span>
-                <span>${item.price / 100}</span>
-              </Item>
-            );
-          })}
-        </Ul>
-        <Total>
-          <span>Total</span>
-          <span>${total / 100}</span>
-        </Total>
-        <Button onClick={navigateToCheckout}>Checkout</Button>
+        {cart.length > 0 ? (
+          <>
+            <Ul>
+              {cart.map((item) => {
+                return (
+                  <Item key={item.name}>
+                    <span>
+                      {item.qty}x {item.name}
+                    </span>
+                    <span>${item.price / 100}</span>
+                  </Item>
+                );
+              })}
+            </Ul>
+            <Total>
+              <span>Total</span>
+              <span>${total / 100}</span>
+            </Total>
+            <Button onClick={navigateToCheckout}>Checkout</Button>
+          </>
+        ) : (
+          <p>Cart is empty!</p>
+        )}
       </Content>
     </Container>
   );
