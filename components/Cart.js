@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FiX } from "react-icons/fi";
 import useCart from "../hooks/useCart";
+import { useRouter } from "next/router";
 
 const Container = styled.div`
   position: fixed;
@@ -73,10 +74,16 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
-  const { cart, isOpen, openCart, closeCart } = useCart();
+  const { cart, isOpen, openCart, closeCart, total } = useCart();
+  const router = useRouter();
 
   const handleClick = () => {
     closeCart();
+  };
+
+  const navigateToCheckout = () => {
+    closeCart();
+    router.push("/checkout");
   };
 
   return (
@@ -100,9 +107,9 @@ const Cart = () => {
         </Ul>
         <Total>
           <span>Total</span>
-          <span>$500</span>
+          <span>${total / 100}</span>
         </Total>
-        <Button>Checkout</Button>
+        <Button onClick={navigateToCheckout}>Checkout</Button>
       </Content>
     </Container>
   );
