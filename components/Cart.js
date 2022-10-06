@@ -17,6 +17,7 @@ const Container = styled.div`
 
 const X = styled(FiX)`
   font-size: 3rem;
+
   &:hover {
     cursor: pointer;
   }
@@ -65,6 +66,7 @@ const Button = styled.button`
   width: 100%;
   padding: 1rem;
   color: white;
+
   &:hover {
     cursor: pointer;
   }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import UnstyledLink from "./styled/UnstyledLink";
 import { FiShoppingCart } from "react-icons/fi";
+import useCart from "../hooks/useCart";
 
 const Nav = styled.nav`
   background: white;
@@ -25,8 +26,10 @@ const ShoppingCart = styled(FiShoppingCart)`
 `;
 
 const Navbar = () => {
+  const { openCart } = useCart();
+
   const handleClick = () => {
-    console.log("open cart");
+    openCart();
   };
 
   return (

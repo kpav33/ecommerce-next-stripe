@@ -8,6 +8,8 @@ const Cart = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
+  // console.log(isOpen);
+
   useEffect(() => {
     const initialCart = getInitialCart();
     // console.log("INITIAL ", initialCart);
