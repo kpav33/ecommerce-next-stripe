@@ -44,6 +44,8 @@ const renderProduct = (product, addItemToCart) => {
 
   // console.log(product);
 
+  // Remove the Netlify function and try and replace it by using Next.js api routes
+
   return (
     <Link key={product.id} href={product.slug}>
       <UnstyledLink>

@@ -45,18 +45,18 @@ export default function Checkout() {
   const processPayment = async () => {
     // const url = "/.netlify/functions/charge-card";
     // const { data } = await axios.post(url, { cart });
-    // console.log("Process payment...");
+    console.log("Process payment...");
 
-    const url = "/.netlify/functions/charge-card";
-    const newCart = cart.map(({ id, qty }) => ({
-      id,
-      qty,
-    }));
+    // const url = "/.netlify/functions/charge-card";
+    // const newCart = cart.map(({ id, qty }) => ({
+    //   id,
+    //   qty,
+    // }));
 
-    console.log(newCart);
-    const { data } = await axios.post(url, { cart: newCart });
-    console.log("DONE");
-    console.log(data);
+    // console.log(newCart);
+    // const { data } = await axios.post(url, { cart: newCart });
+    // console.log("DONE");
+    // console.log(data);
   };
 
   return (
