@@ -18,21 +18,21 @@ const getProducts = () => {
 };
 
 exports.handler = async (event, context) => {
-  console.log(event);
+  //   console.log(event);
 
-  //   const { cart } = JSON.parse(event.body);
+  const { cart } = JSON.parse(event.body);
 
-  //   const products = getProducts();
+  const products = getProducts();
 
-  //   const cartWithProducts = cart.map(({ id, qty }) => {
-  //     const product = products.find((p) => p.id === id);
-  //     return {
-  //       ...product,
-  //       qty,
-  //     };
-  //   });
+  const cartWithProducts = cart.map(({ id, qty }) => {
+    const product = products.find((p) => p.id === id);
+    return {
+      ...product,
+      qty,
+    };
+  });
 
-  //   console.log(cartWithProducts);
+  console.log(cartWithProducts);
   // talking to Stripe
   // charging the card
   return {
