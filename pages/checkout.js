@@ -2,6 +2,7 @@ import React from "react";
 import Page from "../components/styled/Page";
 import useCart from "../hooks/useCart";
 import styled from "styled-components";
+import axios from "axios";
 
 const Item = styled.li`
   list-style: none;
@@ -41,8 +42,21 @@ export default function Checkout() {
   const { cart, total } = useCart();
   //   console.log(cart);
 
-  const processPayment = () => {
-    console.log("Process payment...");
+  const processPayment = async () => {
+    // const url = "/.netlify/functions/charge-card";
+    // const { data } = await axios.post(url, { cart });
+    // console.log("Process payment...");
+
+    const url = "/.netlify/functions/charge-card";
+    const newCart = cart.map(({ id, qty }) => ({
+      id,
+      qty,
+    }));
+
+    console.log(newCart);
+    const { data } = await axios.post(url, { cart: newCart });
+    console.log("DONE");
+    console.log(data);
   };
 
   return (
