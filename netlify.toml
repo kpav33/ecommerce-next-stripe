@@ -1,5 +1,0 @@
-# Removed from GitHub by adding it to .gitignore file, because Netlify functions were replaced with Next.js API routes
-# Kept just as a potential later reference
-
-[build]
-  functions = "functions"
