@@ -67,7 +67,7 @@ export default function Home({ products }) {
   // Also includes a short guide on how to checkout a branch and later merge it into the main app
 
   const { cart, addItemToCart } = useCart();
-  console.log(cart);
+  // console.log(cart);
 
   return (
     <ProductsContainer>
