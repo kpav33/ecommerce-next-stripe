@@ -1,3 +1,4 @@
+// In api routes you could use the "import" keyword for importing packages
 const fs = require("fs");
 const matter = require("gray-matter");
 

@@ -37,3 +37,6 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# Netlify toml file (Ignored due to Netlify functions no longer used)
+netlify.toml

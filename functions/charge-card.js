@@ -1,3 +1,5 @@
+// Replaced with Next.js API routes, kept this as an example!
+
 const fs = require("fs");
 const matter = require("gray-matter");
 
