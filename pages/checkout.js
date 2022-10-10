@@ -3,6 +3,7 @@ import Page from "../components/styled/Page";
 import useCart from "../hooks/useCart";
 import styled from "styled-components";
 import axios from "axios";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Item = styled.li`
   list-style: none;
@@ -52,8 +53,11 @@ export default function Checkout() {
       qty,
     }));
 
+    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
     const { data } = await axios.post(url, { cart: newCart });
-    console.log(data);
+    // console.log("DATA ", data);
+    await stripe.redirectToCheckout({ sessionId: data.body.id });
+    // console.log(data);
   };
 
   return (
