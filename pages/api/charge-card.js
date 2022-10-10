@@ -41,7 +41,7 @@ export default async function handler(req, res) {
       qty,
     };
   });
-  console.log(cartWithProducts);
+  // console.log(cartWithProducts);
 
   // talking to Stripe
   const lineItems = cartWithProducts.map((product) => ({
@@ -56,11 +56,10 @@ export default async function handler(req, res) {
     quantity: product.qty,
   }));
 
-  console.log("URL ", redirectURL);
+  // console.log("URL ", redirectURL);
   // Don't forget to add account name on Stripe dashboard, otherwise this checkout method will fail!
   const session = await stripe.checkout.sessions.create({
     // Configuration object
-    // http://localhost:3000
     payment_method_types: ["card"],
     line_items: lineItems,
     mode: "payment",
@@ -69,6 +68,5 @@ export default async function handler(req, res) {
   });
 
   // charging the card
-
   res.status(200).json({ body: { id: session.id } });
 }
